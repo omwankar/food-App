@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(express.json());
 app.use(cookieParser());
 const corsOptions = {
-    origin: "https://food-app-yt.onrender.com",
+    origin: "https://food-app-a2ny.onrender.com",
     credentials: true
 }
 app.use(cors(corsOptions));
@@ -41,6 +41,7 @@ app.use("*",(_,res) => {
 });
 
 app.listen(PORT, () => {
+    console.log(process.env.MONGO_URI)
     connectDB();
     console.log(`Server listen at port ${PORT}`);
 });
